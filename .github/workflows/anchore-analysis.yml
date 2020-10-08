@@ -26,6 +26,7 @@ jobs:
         fail-build: false
         severity-cutoff: medium 
         acs-report-enable: true
+        debug: true
     - name: get output
       if: ${{success() || failure()}}
       run: ls       
