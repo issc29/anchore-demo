@@ -17,13 +17,13 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v2
     - name: Pull the Docker image
-      run: docker pull docker.io/library/debian:7     
+      run: docker pull docker.io/library/node:10.22.0-jessie     
     - name: Run the local Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
       id: anchore-scan
       uses: anchore/scan-action@v2
       with:
-        image: "docker.io/library/debian:7"
-        acs-report-enable: true
+        image: "docker.io/library/node:10.22.0-jessie"
+        
         fail-build: true
         severity-cutoff: medium
     - name: grype scan JSON results
