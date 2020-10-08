@@ -25,6 +25,13 @@ jobs:
         acs-report-enable: true
         fail-build: true
         severity-cutoff: medium
+    - name: grype scan JSON results
+      run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
+    - name: upload JSON
+      uses: actions/upload-artifact@v2
+      with:
+        name: anchore-vulnerabilities
+        path: ./anchore-reports/vulnerabilities.json
     - name: Upload Anchore Scan Report
       uses: github/codeql-action/upload-sarif@v1
       with:
