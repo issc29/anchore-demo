@@ -21,8 +21,8 @@ jobs:
     - name: Run the local Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
       id: anchore-scan
       uses: anchore/scan-action@v2
-     with:
-        image-reference: "issc29/node-web-app:latest"
+      with:
+        image: "issc29/node-web-app:latest"
         acs-report-enable: true
         fail-build: false
         severity-cutoff: medium 
