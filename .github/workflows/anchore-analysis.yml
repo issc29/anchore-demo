@@ -23,7 +23,6 @@ jobs:
       uses: anchore/scan-action@v2
       with:
         image: "issc29/node-web-app:latest"
-        acs-report-enable: true
         fail-build: false
         severity-cutoff: medium 
     - name: get output
