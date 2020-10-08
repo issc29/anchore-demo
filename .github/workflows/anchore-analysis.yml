@@ -21,7 +21,6 @@ jobs:
     - name: Run the local Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
       id: anchore-scan
       uses: anchore/scan-action@v2
-      continue-on-error: true
       with:
         image: "docker.io/library/debian:7"
         acs-report-enable: true
