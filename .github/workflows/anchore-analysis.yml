@@ -23,6 +23,8 @@ jobs:
       with:
         image: "docker.io/library/debian:7"
         acs-report-enable: true
+        fail-build: true
+        severity-cutoff: medium
     - name: Upload Anchore Scan Report
       uses: github/codeql-action/upload-sarif@v1
       with:
