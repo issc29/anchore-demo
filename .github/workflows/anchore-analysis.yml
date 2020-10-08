@@ -25,6 +25,7 @@ jobs:
         image: "issc29/node-web-app:latest"
         fail-build: false
         severity-cutoff: medium 
+        acs-report-enable: true
     - name: get output
       if: ${{success() || failure()}}
       run: ls       
