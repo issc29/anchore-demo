@@ -25,7 +25,9 @@ jobs:
         image: "issc29/node-web-app:latest"
         
         fail-build: true
-        severity-cutoff: medium
+        severity-cutoff: medium 
+    - name: get output
+      run: ls       
     - name: grype scan JSON results
       if: ${{success() || failure()}}
       run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
