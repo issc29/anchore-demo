@@ -27,6 +27,7 @@ jobs:
         fail-build: true
         severity-cutoff: medium 
     - name: get output
+      if: ${{success() || failure()}}
       run: ls       
     - name: grype scan JSON results
       if: ${{success() || failure()}}
