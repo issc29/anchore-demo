@@ -23,13 +23,8 @@ jobs:
       uses: anchore/scan-action@v2
       with:
         image: "issc29/node-web-app:latest"
-        fail-build: false
+        fail-build: true
         severity-cutoff: medium 
-        acs-report-enable: true
-        debug: true
-    - name: get output
-      if: ${{success() || failure()}}
-      run: ls       
     - name: grype scan JSON results
       if: ${{success() || failure()}}
       run: for j in `ls vulnerabilities.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
@@ -39,9 +34,3 @@ jobs:
       with:
         name: anchore-vulnerabilities
         path: vulnerabilities.json
-    - name: Upload Anchore Scan Report
-      if: ${{success() || failure()}}
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        sarif_file: results.sarif
-
