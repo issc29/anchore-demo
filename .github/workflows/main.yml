@@ -29,6 +29,12 @@ jobs:
           image: "issc29/node-web-app:latest"
           fail-build: true
           severity-cutoff: medium
+      - name: Upload Artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: anchore-vulnerabilities
+          path: vulnerabilities.json
 
 
       
