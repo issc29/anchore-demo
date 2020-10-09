@@ -26,6 +26,6 @@ jobs:
       - name: Scan image
         uses: anchore/scan-action@v2
         with:
-          image: "issc29/node-web-app:latest:latest"
+          image: "issc29/node-web-app:latest"
 
       
